@@ -53,17 +53,17 @@ export default function Reflection({ record, records, setRecords, onDone }: Prop
         className="glass rounded-2xl p-5"
       >
         <div className="flex items-center gap-2.5 mb-4">
-          <div className="w-8 h-8 rounded-xl bg-[#4ade80]/15 flex items-center justify-center">
-            <Brain className="w-4 h-4 text-[#4ade80]" />
+          <div className="w-8 h-8 rounded-xl bg-[#A855F7]/15 flex items-center justify-center">
+            <Brain className="w-4 h-4 text-[#A855F7]" />
           </div>
           <div>
             <h3 className="font-semibold text-sm">{t.insReflectionTitle}</h3>
-            <p className="text-xs text-[#5c6680] mt-0.5">{record.date}</p>
+            <p className="text-xs text-[#6B6B7B] mt-0.5">{record.date}</p>
           </div>
         </div>
 
         {/* Reflection question */}
-        <p className="text-sm text-[#f1f4fb] font-medium leading-snug mb-3">
+        <p className="text-sm text-[#F8F7FC] font-medium leading-snug mb-3">
           {t.insReflectionQ}
         </p>
         <div className="space-y-2 mb-4">
@@ -75,12 +75,12 @@ export default function Reflection({ record, records, setRecords, onDone }: Prop
                 onClick={() => toggleReason(r)}
                 className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border text-left text-sm transition-colors ${
                   selected
-                    ? 'bg-[#4ade80]/10 border-[#4ade80]/30 text-[#f1f4fb]'
-                    : 'bg-[#11151f]/60 border-[#232a3d] text-[#9aa4bd] hover:border-[#232a3d]/80'
+                    ? 'bg-[#A855F7]/10 border-[#A855F7]/30 text-[#F8F7FC]'
+                    : 'bg-[#101016]/60 border-[#1E1E28] text-[#A1A1AA] hover:border-[#1E1E28]/80'
                 }`}
               >
-                <span className={`w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 border ${selected ? 'bg-[#4ade80] border-[#4ade80]' : 'border-[#232a3d]'}`}>
-                  {selected && <Check className="w-3 h-3 text-[#0a0d14]" strokeWidth={3} />}
+                <span className={`w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 border ${selected ? 'bg-[#A855F7] border-[#A855F7]' : 'border-[#1E1E28]'}`}>
+                  {selected && <Check className="w-3 h-3 text-[#08080D]" strokeWidth={3} />}
                 </span>
                 {t.insReflectionReasons[r]}
               </button>
@@ -90,21 +90,21 @@ export default function Reflection({ record, records, setRecords, onDone }: Prop
 
         {/* Optional reflection text */}
         <div className="mb-4">
-          <label className="text-xs text-[#9aa4bd] block mb-2">{t.insReflectionText}</label>
+          <label className="text-xs text-[#A1A1AA] block mb-2">{t.insReflectionText}</label>
           <textarea
             value={reflectionText}
             onChange={(e) => setReflectionText(e.target.value)}
             placeholder={t.insReflectionPlaceholder}
             rows={3}
             maxLength={300}
-            className="w-full px-3 py-2.5 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-[#f1f4fb] placeholder:text-[#5c6680] focus:border-[#22d3ee]/40 focus:outline-none transition-colors resize-none"
+            className="w-full px-3 py-2.5 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-[#F8F7FC] placeholder:text-[#6B6B7B] focus:border-[#C084FC]/40 focus:outline-none transition-colors resize-none"
           />
         </div>
 
         {/* Intention question */}
         <div className="mb-4">
-          <p className="text-sm text-[#f1f4fb] font-medium leading-snug mb-2 flex items-start gap-2">
-            <Heart className="w-4 h-4 text-[#fb7185] flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-[#F8F7FC] font-medium leading-snug mb-2 flex items-start gap-2">
+            <Heart className="w-4 h-4 text-[#A855F7] flex-shrink-0 mt-0.5" />
             {t.insIntentionQ}
           </p>
           <input
@@ -113,7 +113,7 @@ export default function Reflection({ record, records, setRecords, onDone }: Prop
             onChange={(e) => setIntention(e.target.value)}
             placeholder={t.insIntentionPlaceholder}
             maxLength={120}
-            className="w-full px-3 py-2.5 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-[#f1f4fb] placeholder:text-[#5c6680] focus:border-[#fb7185]/40 focus:outline-none transition-colors"
+            className="w-full px-3 py-2.5 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-[#F8F7FC] placeholder:text-[#6B6B7B] focus:border-[#A855F7]/40 focus:outline-none transition-colors"
           />
         </div>
 
@@ -121,14 +121,14 @@ export default function Reflection({ record, records, setRecords, onDone }: Prop
         <div className="flex gap-2">
           <button
             onClick={onDone}
-            className="flex-1 px-4 py-3 rounded-xl bg-[#232a3d]/40 text-[#9aa4bd] text-sm font-medium hover:bg-[#232a3d]/60 transition-colors"
+            className="flex-1 px-4 py-3 rounded-xl bg-[#1E1E28]/40 text-[#A1A1AA] text-sm font-medium hover:bg-[#1E1E28]/60 transition-colors"
           >
             {t.insSkipReflection}
           </button>
           <motion.button
             whileTap={{ scale: 0.98 }}
             onClick={save}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#4ade80]/10 border border-[#4ade80]/30 text-[#4ade80] text-sm font-semibold hover:bg-[#4ade80]/15 transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#A855F7]/10 border border-[#A855F7]/30 text-[#A855F7] text-sm font-semibold hover:bg-[#A855F7]/15 transition-colors"
           >
             <Check className="w-4 h-4" />
             {t.insSaveReflection}

@@ -6,17 +6,17 @@
 
 @layer base {
   :root {
-    --bg-base: #0a0d14;
-    --bg-surface: #11151f;
-    --bg-elevated: #171c2a;
-    --border-subtle: #232a3d;
-    --text-primary: #f1f4fb;
-    --text-secondary: #9aa4bd;
-    --text-muted: #5c6680;
-    --accent-mint: #4ade80;
-    --accent-amber: #fbbf24;
-    --accent-cyan: #22d3ee;
-    --accent-rose: #fb7185;
+    --bg-base: #08080D;
+    --bg-surface: #101016;
+    --bg-elevated: #15151D;
+    --border-subtle: #1E1E28;
+    --text-primary: #F8F7FC;
+    --text-secondary: #A1A1AA;
+    --text-muted: #6B6B7B;
+    --accent-mint: #A855F7;
+    --accent-amber: #C084FC;
+    --accent-cyan: #C084FC;
+    --accent-rose: #A855F7;
   }
 
   html {
@@ -38,24 +38,24 @@
 
 @layer utilities {
   .glass {
-    background: rgba(23, 28, 42, 0.7);
+    background: rgba(21, 21, 29, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(35, 42, 61, 0.6);
+    border: 1px solid rgba(168, 85, 247, 0.15);
   }
 
   .grid-bg {
     background-image:
-      linear-gradient(rgba(35, 42, 61, 0.25) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(35, 42, 61, 0.25) 1px, transparent 1px);
+      linear-gradient(rgba(30, 30, 40, 0.25) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 30, 40, 0.25) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
   .glow-mint {
-    box-shadow: 0 0 24px rgba(74, 222, 128, 0.25);
+    box-shadow: 0 0 24px rgba(168, 85, 247, 0.25);
   }
   .glow-amber {
-    box-shadow: 0 0 24px rgba(251, 191, 36, 0.2);
+    box-shadow: 0 0 24px rgba(192, 132, 252, 0.2);
   }
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
