@@ -58,6 +58,32 @@
     box-shadow: 0 0 24px rgba(192, 132, 252, 0.2);
   }
 
+  .glow-purple {
+    box-shadow: 0 0 16px rgba(168, 85, 247, 0.3);
+  }
+  .glow-violet {
+    box-shadow: 0 0 16px rgba(192, 132, 252, 0.25);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(168, 85, 247, 0.25);
+  }
+  .neon-border-violet {
+    border: 1px solid rgba(192, 132, 252, 0.25);
+  }
+
+  .neon-active {
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+    transition: box-shadow 0.2s ease;
+  }
+  .neon-active:hover {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.45);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+  }
+
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

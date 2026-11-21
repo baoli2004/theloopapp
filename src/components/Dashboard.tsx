@@ -111,7 +111,7 @@ export default function Dashboard({ onOpenMirror, onCheckIn }: { onOpenMirror: (
         transition={{ delay: 0.18 }}
         whileTap={{ scale: 0.99 }}
         onClick={onOpenMirror}
-        className="w-full relative overflow-hidden rounded-2xl p-5 border border-[#C084FC]/25 bg-gradient-to-br from-[#C084FC]/8 to-[#A855F7]/5 hover:border-[#C084FC]/40 transition-colors text-left"
+        className="w-full relative overflow-hidden rounded-2xl p-5 border border-[#C084FC]/25 bg-gradient-to-br from-[#C084FC]/8 to-[#A855F7]/5 hover:border-[#C084FC]/40 hover:glow-violet transition-all text-left"
       >
         <div className="relative flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#C084FC] to-[#A855F7] flex items-center justify-center flex-shrink-0">

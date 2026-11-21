@@ -3,17 +3,26 @@
     android:height="108dp"
     android:viewportHeight="108"
     android:viewportWidth="108">
+
+    <!-- Outer organic loop ring -->
     <path
         android:fillColor="#00000000"
         android:strokeColor="#A855F7"
-        android:strokeWidth="4"
-        android:pathData="M54,54 m-30,0 a30,30 0 1,0 60,0 a30,30 0 1,0 -60,0" />
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,14 C72,14 86,28 84,50 C82,72 68,86 48,84 C28,82 14,68 16,46 C18,30 30,16 54,14 Z" />
+
+    <!-- Inner interwoven curve -->
     <path
         android:fillColor="#00000000"
         android:strokeColor="#C084FC"
-        android:strokeWidth="3"
-        android:pathData="M54,54 m-18,0 a18,18 0 1,0 36,0 a18,18 0 1,0 -36,0" />
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M36,68 C42,52 58,48 64,58 C69,67 62,77 52,75 C44,73 39,64 44,56" />
+
+    <!-- Central intelligence node -->
     <path
-        android:fillColor="#A855F7"
-        android:pathData="M54,48 m-6,0 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0" />
+        android:fillColor="#C084FC"
+        android:pathData="M54,50 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+
 </vector>

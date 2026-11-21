@@ -61,7 +61,7 @@ function AppInner() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setOverlayOpen(true)}
-          className="sm:hidden fixed bottom-6 right-6 z-30 w-14 h-14 rounded-full bg-[#C084FC] text-[#08080D] flex items-center justify-center shadow-lg shadow-[#C084FC]/30"
+          className="sm:hidden fixed bottom-6 right-6 z-30 w-14 h-14 rounded-full bg-[#C084FC] text-[#08080D] flex items-center justify-center shadow-lg shadow-[#C084FC]/30 glow-violet"
         >
           <Zap className="w-6 h-6" />
         </motion.button>

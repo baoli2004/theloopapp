@@ -4,6 +4,7 @@ import { useApp } from '@/store';
 import { useLang } from '@/lang';
 import { useFocusT } from '@/focusI18n';
 import LangSwitcher from '@/components/LangSwitcher';
+import LoopLogo from '@/components/LoopLogo';
 
 type TabKey = 'dashboard' | 'peers' | 'insights' | 'focus';
 
@@ -23,8 +24,8 @@ export default function Header({ tab, setTab, onSimulate }: Props) {
     <header className="sticky top-0 z-30 glass border-b border-[#1E1E28]/60">
       <div className="max-w-5xl mx-auto px-4 sm:px-5 py-3.5 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2.5 flex-shrink-0">
-          <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#A855F7] to-[#C084FC] flex items-center justify-center flex-shrink-0">
-            <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-[#08080D]" strokeWidth={2.5} />
+          <div className="relative flex-shrink-0">
+            <LoopLogo size={36} />
           </div>
           <div className="hidden xs:block sm:block">
             <h1 className="text-sm sm:text-base font-bold leading-none font-display">THE LOOP</h1>
@@ -55,7 +56,7 @@ export default function Header({ tab, setTab, onSimulate }: Props) {
           </div>
           <button
             onClick={onSimulate}
-            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#C084FC] text-[#08080D] text-xs font-semibold hover:bg-[#C084FC]/80 transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#C084FC] text-[#08080D] text-xs font-semibold hover:bg-[#C084FC]/80 transition-colors glow-violet"
           >
             {t.simulate}
           </button>
@@ -72,7 +73,7 @@ function TabBtn({ active, onClick, icon, children }: { active: boolean; onClick:
       className={`relative flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium transition-colors ${active ? 'text-[#F8F7FC]' : 'text-[#6B6B7B] hover:text-[#A1A1AA]'}`}
     >
       {active && (
-        <motion.div layoutId="tab-bg" className="absolute inset-0 bg-[#1E1E28]/70 rounded-lg" transition={{ type: 'spring', stiffness: 400, damping: 30 }} />
+        <motion.div layoutId="tab-bg" className="absolute inset-0 bg-[#1E1E28]/80 rounded-lg glow-purple" transition={{ type: 'spring', stiffness: 400, damping: 30 }} />
       )}
       <span className="relative flex items-center gap-1.5">{icon}{children}</span>
     </button>

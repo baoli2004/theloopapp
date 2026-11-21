@@ -125,7 +125,7 @@ export default function FocusActive({ session, onUpdate, onFinish }: Props) {
               <button
                 type="button"
                 onClick={manualResume}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#A855F7] text-[#08080D] text-sm font-bold hover:bg-[#A855F7]/85 transition-colors active:scale-[0.99]"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#A855F7] text-[#08080D] text-sm font-bold hover:bg-[#A855F7]/85 transition-colors active:scale-[0.99] glow-purple"
               >
                 <Play className="w-4 h-4" fill="currentColor" /> {f.resumeButton}
               </button>
