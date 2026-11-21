@@ -6,15 +6,15 @@ export default function ToastStack() {
   const { toasts, dismissToast } = useApp();
 
   const icons = {
-    success: <CheckCircle2 className="w-4 h-4 text-[#4ade80]" />,
-    info: <Info className="w-4 h-4 text-[#22d3ee]" />,
-    warn: <AlertCircle className="w-4 h-4 text-[#fbbf24]" />,
+    success: <CheckCircle2 className="w-4 h-4 text-[#A855F7]" />,
+    info: <Info className="w-4 h-4 text-[#C084FC]" />,
+    warn: <AlertCircle className="w-4 h-4 text-[#C084FC]" />,
   };
 
   const borders = {
-    success: 'border-[#4ade80]/30',
-    info: 'border-[#22d3ee]/30',
-    warn: 'border-[#fbbf24]/30',
+    success: 'border-[#A855F7]/30',
+    info: 'border-[#C084FC]/30',
+    warn: 'border-[#C084FC]/30',
   };
 
   return (
@@ -30,8 +30,8 @@ export default function ToastStack() {
             className={`glass rounded-xl px-4 py-3 border ${borders[t.variant]} flex items-center gap-2.5 shadow-lg`}
           >
             {icons[t.variant]}
-            <span className="text-sm text-[#f1f4fb] flex-1">{t.text}</span>
-            <button onClick={() => dismissToast(t.id)} className="text-[#5c6680] hover:text-[#9aa4bd]">
+            <span className="text-sm text-[#F8F7FC] flex-1">{t.text}</span>
+            <button onClick={() => dismissToast(t.id)} className="text-[#6B6B7B] hover:text-[#A1A1AA]">
               <X className="w-3.5 h-3.5" />
             </button>
           </motion.div>

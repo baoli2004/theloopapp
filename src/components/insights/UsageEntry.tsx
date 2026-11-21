@@ -125,19 +125,19 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
         className="glass rounded-2xl p-5"
       >
         <div className="flex items-center gap-2.5 mb-4">
-          <div className="w-8 h-8 rounded-xl bg-[#22d3ee]/15 flex items-center justify-center">
-            <Save className="w-4 h-4 text-[#22d3ee]" />
+          <div className="w-8 h-8 rounded-xl bg-[#C084FC]/15 flex items-center justify-center">
+            <Save className="w-4 h-4 text-[#C084FC]" />
           </div>
           <div>
             <h3 className="font-semibold text-sm">{t.insEntryTitle}</h3>
-            <p className="text-xs text-[#5c6680] mt-0.5">{t.insEntrySubtitle}</p>
+            <p className="text-xs text-[#6B6B7B] mt-0.5">{t.insEntrySubtitle}</p>
           </div>
         </div>
 
         {/* Date selector */}
         <div className="mb-4">
-          <label className="text-xs text-[#9aa4bd] flex items-center gap-1.5 mb-2">
-            <Calendar className="w-3.5 h-3.5 text-[#22d3ee]" />
+          <label className="text-xs text-[#A1A1AA] flex items-center gap-1.5 mb-2">
+            <Calendar className="w-3.5 h-3.5 text-[#C084FC]" />
             {t.insSelectDate}
           </label>
           <input
@@ -145,10 +145,10 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
             value={date}
             max={todayKey()}
             onChange={(e) => handleDateChange(e.target.value)}
-            className="w-full px-3 py-2.5 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-[#f1f4fb] focus:border-[#22d3ee]/50 focus:outline-none transition-colors"
+            className="w-full px-3 py-2.5 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-[#F8F7FC] focus:border-[#C084FC]/50 focus:outline-none transition-colors"
           />
           {existingRecord && (
-            <p className="text-[11px] text-[#fbbf24] mt-1.5 flex items-center gap-1">
+            <p className="text-[11px] text-[#C084FC] mt-1.5 flex items-center gap-1">
               <AlertCircle className="w-3 h-3" />
               {t.insOverwriteTitle}
             </p>
@@ -163,7 +163,7 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
                 type="text"
                 value={app.appName}
                 onChange={(e) => updateAppName(idx, e.target.value)}
-                className="flex-1 min-w-0 px-3 py-2.5 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-[#f1f4fb] focus:border-[#22d3ee]/40 focus:outline-none transition-colors"
+                className="flex-1 min-w-0 px-3 py-2.5 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-[#F8F7FC] focus:border-[#C084FC]/40 focus:outline-none transition-colors"
                 placeholder={t.insAppName}
               />
               <div className="relative w-28 flex-shrink-0">
@@ -173,15 +173,15 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
                   min={0}
                   value={app.minutes || ''}
                   onChange={(e) => updateMinutes(idx, e.target.value)}
-                  className="w-full px-3 py-2.5 pr-8 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-right text-[#f1f4fb] focus:border-[#22d3ee]/40 focus:outline-none transition-colors"
+                  className="w-full px-3 py-2.5 pr-8 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-right text-[#F8F7FC] focus:border-[#C084FC]/40 focus:outline-none transition-colors"
                   placeholder="0"
                 />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-[#5c6680]">{t.insMinShort}</span>
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-[#6B6B7B]">{t.insMinShort}</span>
               </div>
               {idx >= DEFAULT_APPS.length && (
                 <button
                   onClick={() => removeApp(idx)}
-                  className="w-8 h-8 flex-shrink-0 rounded-lg flex items-center justify-center text-[#5c6680] hover:text-[#fb7185] hover:bg-[#fb7185]/10 transition-colors"
+                  className="w-8 h-8 flex-shrink-0 rounded-lg flex items-center justify-center text-[#6B6B7B] hover:text-[#A855F7] hover:bg-[#A855F7]/10 transition-colors"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                 </button>
@@ -198,11 +198,11 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
             onChange={(e) => setCustomAppName(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomApp())}
             placeholder={t.insAddAppNamePlaceholder}
-            className="flex-1 min-w-0 px-3 py-2 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-[#f1f4fb] placeholder:text-[#5c6680] focus:border-[#22d3ee]/40 focus:outline-none transition-colors"
+            className="flex-1 min-w-0 px-3 py-2 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-[#F8F7FC] placeholder:text-[#6B6B7B] focus:border-[#C084FC]/40 focus:outline-none transition-colors"
           />
           <button
             onClick={addCustomApp}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#232a3d]/60 text-[#9aa4bd] text-xs font-medium hover:bg-[#232a3d] hover:text-[#f1f4fb] transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1E1E28]/60 text-[#A1A1AA] text-xs font-medium hover:bg-[#1E1E28] hover:text-[#F8F7FC] transition-colors"
           >
             <Plus className="w-3.5 h-3.5" />
             {t.insAddApp}
@@ -211,9 +211,9 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
 
         {/* Error */}
         {error && (
-          <div className="mt-3 flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[#fb7185]/10 border border-[#fb7185]/20">
-            <AlertCircle className="w-4 h-4 text-[#fb7185] flex-shrink-0" />
-            <p className="text-xs text-[#fb7185]">{error}</p>
+          <div className="mt-3 flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[#A855F7]/10 border border-[#A855F7]/20">
+            <AlertCircle className="w-4 h-4 text-[#A855F7] flex-shrink-0" />
+            <p className="text-xs text-[#A855F7]">{error}</p>
           </div>
         )}
 
@@ -221,7 +221,7 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
         <motion.button
           whileTap={{ scale: 0.98 }}
           onClick={doSave}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 mt-4 rounded-xl bg-[#4ade80]/10 border border-[#4ade80]/30 text-[#4ade80] text-sm font-semibold hover:bg-[#4ade80]/15 transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 mt-4 rounded-xl bg-[#A855F7]/10 border border-[#A855F7]/30 text-[#A855F7] text-sm font-semibold hover:bg-[#A855F7]/15 transition-colors"
         >
           <Save className="w-4 h-4" />
           {t.insSaveData}
@@ -232,20 +232,20 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-3 p-4 rounded-xl bg-[#fbbf24]/8 border border-[#fbbf24]/25"
+            className="mt-3 p-4 rounded-xl bg-[#C084FC]/8 border border-[#C084FC]/25"
           >
-            <p className="text-sm font-medium text-[#fbbf24] mb-1">{t.insOverwriteTitle}</p>
-            <p className="text-xs text-[#9aa4bd] mb-3">{t.insOverwriteBody}</p>
+            <p className="text-sm font-medium text-[#C084FC] mb-1">{t.insOverwriteTitle}</p>
+            <p className="text-xs text-[#A1A1AA] mb-3">{t.insOverwriteBody}</p>
             <div className="flex gap-2">
               <button
                 onClick={() => setShowOverwrite(false)}
-                className="flex-1 px-3 py-2 rounded-lg bg-[#232a3d]/60 text-[#9aa4bd] text-xs font-medium hover:bg-[#232a3d] transition-colors"
+                className="flex-1 px-3 py-2 rounded-lg bg-[#1E1E28]/60 text-[#A1A1AA] text-xs font-medium hover:bg-[#1E1E28] transition-colors"
               >
                 {t.insCancel}
               </button>
               <button
                 onClick={doSave}
-                className="flex-1 px-3 py-2 rounded-lg bg-[#fbbf24]/15 text-[#fbbf24] text-xs font-semibold hover:bg-[#fbbf24]/20 transition-colors"
+                className="flex-1 px-3 py-2 rounded-lg bg-[#C084FC]/15 text-[#C084FC] text-xs font-semibold hover:bg-[#C084FC]/20 transition-colors"
               >
                 {t.insConfirm}
               </button>
@@ -257,10 +257,10 @@ export default function UsageEntry({ records, setRecords, onSaved, editDate }: P
       {/* Data source info */}
       <div className="glass rounded-2xl p-4">
         <div className="flex items-start gap-2.5">
-          <Info className="w-4 h-4 text-[#5c6680] flex-shrink-0 mt-0.5" />
+          <Info className="w-4 h-4 text-[#6B6B7B] flex-shrink-0 mt-0.5" />
           <div>
-            <p className="text-xs font-medium text-[#9aa4bd] mb-1">{t.insDataSource}</p>
-            <p className="text-xs text-[#5c6680] leading-relaxed">{t.insDataSourceText}</p>
+            <p className="text-xs font-medium text-[#A1A1AA] mb-1">{t.insDataSource}</p>
+            <p className="text-xs text-[#6B6B7B] leading-relaxed">{t.insDataSourceText}</p>
           </div>
         </div>
       </div>

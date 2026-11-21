@@ -42,7 +42,7 @@ export default function FocusSetup({ onStart }: Props) {
     <form onSubmit={handleSubmit} className="space-y-4">
       <section className="glass rounded-2xl p-5">
         <h3 className="font-semibold text-sm">{f.appsTitle}</h3>
-        <p className="text-xs text-[#5c6680] mt-0.5 mb-4">{f.appsHint}</p>
+        <p className="text-xs text-[#6B6B7B] mt-0.5 mb-4">{f.appsHint}</p>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
           {FOCUS_APPS.map((id) => {
             const selected = apps.includes(id);
@@ -54,14 +54,14 @@ export default function FocusSetup({ onStart }: Props) {
                 onClick={() => toggleApp(id)}
                 className={`relative flex items-center justify-between gap-2 px-3 py-3 rounded-xl border text-sm font-medium transition-all active:scale-[0.98] ${
                   selected
-                    ? 'border-[#22d3ee]/60 bg-[#22d3ee]/10 text-[#f1f4fb]'
-                    : 'border-[#232a3d] bg-[#11151f]/60 text-[#9aa4bd] hover:border-[#2f3850]'
+                    ? 'border-[#C084FC]/60 bg-[#C084FC]/10 text-[#F8F7FC]'
+                    : 'border-[#1E1E28] bg-[#101016]/60 text-[#A1A1AA] hover:border-[#2A2A3A]'
                 }`}
               >
                 <span>{f.apps[id]}</span>
                 <span
                   className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                    selected ? 'bg-[#22d3ee] text-[#0a0d14]' : 'border border-[#2f3850]'
+                    selected ? 'bg-[#C084FC] text-[#08080D]' : 'border border-[#2A2A3A]'
                   }`}
                 >
                   {selected && <Check className="w-3 h-3" strokeWidth={3} />}
@@ -85,8 +85,8 @@ export default function FocusSetup({ onStart }: Props) {
                 onClick={() => setChoice(min)}
                 className={`py-2.5 rounded-xl border text-sm font-semibold transition-all active:scale-[0.98] ${
                   selected
-                    ? 'border-[#4ade80]/60 bg-[#4ade80]/10 text-[#4ade80]'
-                    : 'border-[#232a3d] bg-[#11151f]/60 text-[#9aa4bd] hover:border-[#2f3850]'
+                    ? 'border-[#A855F7]/60 bg-[#A855F7]/10 text-[#A855F7]'
+                    : 'border-[#1E1E28] bg-[#101016]/60 text-[#A1A1AA] hover:border-[#2A2A3A]'
                 }`}
               >
                 {min} {f.minutesUnit}
@@ -99,8 +99,8 @@ export default function FocusSetup({ onStart }: Props) {
             onClick={() => setChoice('custom')}
             className={`py-2.5 rounded-xl border text-sm font-semibold transition-all active:scale-[0.98] ${
               choice === 'custom'
-                ? 'border-[#4ade80]/60 bg-[#4ade80]/10 text-[#4ade80]'
-                : 'border-[#232a3d] bg-[#11151f]/60 text-[#9aa4bd] hover:border-[#2f3850]'
+                ? 'border-[#A855F7]/60 bg-[#A855F7]/10 text-[#A855F7]'
+                : 'border-[#1E1E28] bg-[#101016]/60 text-[#A1A1AA] hover:border-[#2A2A3A]'
             }`}
           >
             {f.customLabel}
@@ -116,22 +116,22 @@ export default function FocusSetup({ onStart }: Props) {
               placeholder={f.customPlaceholder}
               maxLength={3}
               aria-invalid={customInvalid}
-              className="w-full px-4 py-2.5 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-[#f1f4fb] placeholder:text-[#5c6680] focus:outline-none focus:border-[#4ade80]/60"
+              className="w-full px-4 py-2.5 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-[#F8F7FC] placeholder:text-[#6B6B7B] focus:outline-none focus:border-[#A855F7]/60"
             />
-            {customInvalid && <p className="text-xs text-[#fb7185] mt-1.5">{f.customInvalid}</p>}
+            {customInvalid && <p className="text-xs text-[#A855F7] mt-1.5">{f.customInvalid}</p>}
           </div>
         )}
       </section>
 
       <section className="glass rounded-2xl p-5">
         <h3 className="font-semibold text-sm">{f.goalTitle}</h3>
-        <p className="text-xs text-[#5c6680] mt-0.5 mb-3">{f.goalHint}</p>
+        <p className="text-xs text-[#6B6B7B] mt-0.5 mb-3">{f.goalHint}</p>
         <input
           type="text"
           value={goal}
           onChange={(e) => setGoal(e.target.value.slice(0, FOCUS_GOAL_MAX_LEN))}
           placeholder={f.goalPlaceholder}
-          className="w-full px-4 py-2.5 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-[#f1f4fb] placeholder:text-[#5c6680] focus:outline-none focus:border-[#22d3ee]/60"
+          className="w-full px-4 py-2.5 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-[#F8F7FC] placeholder:text-[#6B6B7B] focus:outline-none focus:border-[#C084FC]/60"
         />
       </section>
 
@@ -139,13 +139,13 @@ export default function FocusSetup({ onStart }: Props) {
         <button
           type="submit"
           disabled={!canStart}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#22d3ee] text-[#0a0d14] text-sm font-bold tracking-wide transition-all hover:bg-[#22d3ee]/85 active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#C084FC] text-[#08080D] text-sm font-bold tracking-wide transition-all hover:bg-[#C084FC]/85 active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <Play className="w-4 h-4" fill="currentColor" />
           {f.startButton}
         </button>
         {!canStart && (
-          <p className="text-xs text-[#5c6680] sm:text-right">
+          <p className="text-xs text-[#6B6B7B] sm:text-right">
             {apps.length === 0 ? f.startNeedApps : f.startNeedDuration}
           </p>
         )}
