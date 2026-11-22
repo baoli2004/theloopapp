@@ -176,19 +176,19 @@ export default function ExportData({ records, setRecords }: Props) {
         className="glass rounded-2xl p-5"
       >
         <div className="flex items-center gap-2.5 mb-4">
-          <div className="w-8 h-8 rounded-xl bg-[#C084FC]/15 flex items-center justify-center">
-            <Download className="w-4 h-4 text-[#C084FC]" />
+          <div className="w-8 h-8 rounded-xl bg-[#22d3ee]/15 flex items-center justify-center">
+            <Download className="w-4 h-4 text-[#22d3ee]" />
           </div>
           <div>
             <h3 className="font-semibold text-sm">{t.insExportTitle}</h3>
-            <p className="text-xs text-[#6B6B7B] mt-0.5">{t.insExportDesc}</p>
+            <p className="text-xs text-[#5c6680] mt-0.5">{t.insExportDesc}</p>
           </div>
         </div>
 
         {!hasData && (
-          <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[#C084FC]/8 border border-[#C084FC]/20 mb-3">
-            <FileText className="w-4 h-4 text-[#C084FC] flex-shrink-0" />
-            <p className="text-xs text-[#C084FC]">{t.insExportNoData}</p>
+          <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[#fbbf24]/8 border border-[#fbbf24]/20 mb-3">
+            <FileText className="w-4 h-4 text-[#22d3ee] flex-shrink-0" />
+            <p className="text-xs text-[#22d3ee]">{t.insExportNoData}</p>
           </div>
         )}
 
@@ -196,44 +196,44 @@ export default function ExportData({ records, setRecords }: Props) {
           <button
             onClick={() => handleExport(true)}
             disabled={!hasData}
-            className="flex flex-col items-start gap-1 p-4 rounded-xl bg-[#101016]/60 border border-[#1E1E28] hover:border-[#A855F7]/30 transition-colors text-left disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex flex-col items-start gap-1 p-4 rounded-xl bg-[#11151f]/60 border border-[#232a3d] hover:border-[#fb7185]/30 transition-colors text-left disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            <span className="flex items-center gap-2 text-sm font-medium text-[#A855F7]">
+            <span className="flex items-center gap-2 text-sm font-medium text-[#4ade80]">
               <ShieldOff className="w-4 h-4" />
               {t.insExportAnon}
             </span>
-            <span className="text-xs text-[#6B6B7B]">{t.insExportAnonDesc}</span>
+            <span className="text-xs text-[#5c6680]">{t.insExportAnonDesc}</span>
           </button>
 
           <button
             onClick={() => handleExport(false)}
             disabled={!hasData}
-            className="flex flex-col items-start gap-1 p-4 rounded-xl bg-[#101016]/60 border border-[#1E1E28] hover:border-[#C084FC]/30 transition-colors text-left disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex flex-col items-start gap-1 p-4 rounded-xl bg-[#11151f]/60 border border-[#232a3d] hover:border-[#22d3ee]/30 transition-colors text-left disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            <span className="flex items-center gap-2 text-sm font-medium text-[#C084FC]">
+            <span className="flex items-center gap-2 text-sm font-medium text-[#22d3ee]">
               <Download className="w-4 h-4" />
               {t.insExportFull}
             </span>
-            <span className="text-xs text-[#6B6B7B]">{t.insExportFullDesc}</span>
+            <span className="text-xs text-[#5c6680]">{t.insExportFullDesc}</span>
           </button>
         </div>
 
         {/* Data summary */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-[#A1A1AA] flex items-center gap-1.5">
-              <Database className="w-3.5 h-3.5 text-[#C084FC]" />
+            <span className="text-[#9aa4bd] flex items-center gap-1.5">
+              <Database className="w-3.5 h-3.5 text-[#22d3ee]" />
               {t.insRealData}
             </span>
-            <span className="text-[#F8F7FC] font-medium">{userData.length} {lang === 'vi' ? 'bản ghi' : 'records'}</span>
+            <span className="text-[#f1f4fb] font-medium">{userData.length} {lang === 'vi' ? 'bản ghi' : 'records'}</span>
           </div>
           {sampleData.length > 0 && (
             <div className="flex items-center justify-between text-xs">
-              <span className="text-[#C084FC] flex items-center gap-1.5">
+              <span className="text-[#22d3ee] flex items-center gap-1.5">
                 <FlaskConical className="w-3.5 h-3.5" />
                 {t.insSampleData}
               </span>
-              <span className="text-[#C084FC] font-medium">{sampleData.length} {lang === 'vi' ? 'bản ghi' : 'records'}</span>
+              <span className="text-[#fbbf24] font-medium">{sampleData.length} {lang === 'vi' ? 'bản ghi' : 'records'}</span>
             </div>
           )}
         </div>
@@ -247,14 +247,14 @@ export default function ExportData({ records, setRecords }: Props) {
         className="glass rounded-2xl p-5"
       >
         <div className="flex items-center gap-2 mb-3">
-          <FlaskConical className="w-4 h-4 text-[#C084FC]" />
+          <FlaskConical className="w-4 h-4 text-[#fbbf24]" />
           <h3 className="font-semibold text-sm">{t.insSampleData}</h3>
         </div>
-        <p className="text-xs text-[#6B6B7B] mb-3 leading-relaxed">{t.insSampleDataDesc}</p>
+        <p className="text-xs text-[#5c6680] mb-3 leading-relaxed">{t.insSampleDataDesc}</p>
         <div className="flex flex-wrap gap-2">
           <button
             onClick={loadSample}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#C084FC]/10 border border-[#C084FC]/20 text-[#C084FC] text-xs font-medium hover:bg-[#C084FC]/15 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#22d3ee]/10 border border-[#22d3ee]/20 text-[#22d3ee] text-xs font-medium hover:bg-[#22d3ee]/15 transition-colors"
           >
             <FlaskConical className="w-3.5 h-3.5" />
             {t.insLoadSample}
@@ -262,7 +262,7 @@ export default function ExportData({ records, setRecords }: Props) {
           {sampleData.length > 0 && (
             <button
               onClick={clearSample}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#1E1E28]/40 text-[#A1A1AA] text-xs font-medium hover:bg-[#1E1E28]/60 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#232a3d]/40 text-[#9aa4bd] text-xs font-medium hover:bg-[#232a3d]/60 transition-colors"
             >
               <Trash2 className="w-3.5 h-3.5" />
               {t.insClearSample}
@@ -271,7 +271,7 @@ export default function ExportData({ records, setRecords }: Props) {
           {userData.length > 0 && (
             <button
               onClick={clearAll}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#A855F7]/8 text-[#A855F7] text-xs font-medium hover:bg-[#A855F7]/12 transition-colors ml-auto"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#fb7185]/8 text-[#fb7185] text-xs font-medium hover:bg-[#fb7185]/12 transition-colors ml-auto"
             >
               <Trash2 className="w-3.5 h-3.5" />
               {t.insClearAll}
@@ -288,10 +288,10 @@ export default function ExportData({ records, setRecords }: Props) {
         className="glass rounded-2xl p-4"
       >
         <div className="flex items-start gap-2.5">
-          <Lock className="w-4 h-4 text-[#6B6B7B] flex-shrink-0 mt-0.5" />
+          <Lock className="w-4 h-4 text-[#5c6680] flex-shrink-0 mt-0.5" />
           <div>
-            <p className="text-xs font-medium text-[#A1A1AA] mb-1">{t.insPrivacyNote}</p>
-            <p className="text-xs text-[#6B6B7B] leading-relaxed">{t.insPrivacyNoteText}</p>
+            <p className="text-xs font-medium text-[#9aa4bd] mb-1">{t.insPrivacyNote}</p>
+            <p className="text-xs text-[#5c6680] leading-relaxed">{t.insPrivacyNoteText}</p>
           </div>
         </div>
       </motion.div>

@@ -81,9 +81,9 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
         className="fixed inset-0 z-50 flex items-center justify-center"
       >
         {/* Blurred backdrop simulating the feed */}
-        <div className="absolute inset-0 bg-[#08080D]">
+        <div className="absolute inset-0 bg-[#0a0d14]">
           <div className="absolute inset-0 grid-bg opacity-30" />
-          <div className="absolute inset-0 backdrop-blur-2xl bg-[#08080D]/80" />
+          <div className="absolute inset-0 backdrop-blur-2xl bg-[#0a0d14]/80" />
         </div>
 
         <motion.div
@@ -92,24 +92,24 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
           transition={{ type: 'spring', stiffness: 200, damping: 22 }}
           className="relative w-full max-w-md mx-4"
         >
-          <div className="glass rounded-3xl p-8 border border-[#1E1E28] shadow-2xl">
+          <div className="glass rounded-3xl p-8 border border-[#232a3d] shadow-2xl">
             <AnimatePresence mode="wait">
               {/* SIMULATING */}
               {phase === 'simulating' && (
                 <motion.div key="sim" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-8">
-                  <div className="relative mx-auto w-24 h-32 rounded-2xl bg-gradient-to-b from-[#1E1E28] to-[#101016] border border-[#1E1E28] overflow-hidden mb-6">
+                  <div className="relative mx-auto w-24 h-32 rounded-2xl bg-gradient-to-b from-[#232a3d] to-[#11151f] border border-[#232a3d] overflow-hidden mb-6">
                     <motion.div
                       animate={{ y: [0, -120, 0] }}
                       transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                       className="absolute inset-x-0 top-0 space-y-1 p-2"
                     >
                       {[0, 1, 2, 3, 4].map((i) => (
-                        <div key={i} className="h-16 rounded-lg bg-gradient-to-br from-[#1E1E28] to-[#15151D]" />
+                        <div key={i} className="h-16 rounded-lg bg-gradient-to-br from-[#232a3d] to-[#171c2a]" />
                       ))}
                     </motion.div>
                   </div>
-                  <p className="text-sm text-[#A1A1AA]">{t.simulatingScroll}</p>
-                  <p className="text-xs text-[#6B6B7B] mt-1">{t.videosSwiped(simCount)}</p>
+                  <p className="text-sm text-[#9aa4bd]">{t.simulatingScroll}</p>
+                  <p className="text-xs text-[#5c6680] mt-1">{t.videosSwiped(simCount)}</p>
                 </motion.div>
               )}
 
@@ -117,14 +117,14 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
               {phase === 'countdown' && (
                 <motion.div key="cd" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-6">
                   <div className="flex items-center justify-center gap-2 mb-6">
-                    <Brain className="w-5 h-5 text-[#C084FC]" />
-                    <span className="text-[10px] uppercase tracking-widest text-[#C084FC]">{t.system2}</span>
+                    <Brain className="w-5 h-5 text-[#22d3ee]" />
+                    <span className="text-[10px] uppercase tracking-widest text-[#22d3ee]">{t.system2}</span>
                   </div>
                   <div className="relative mx-auto w-32 h-32 mb-6">
                     <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
-                      <circle cx="60" cy="60" r="52" fill="none" stroke="#1E1E28" strokeWidth="6" />
+                      <circle cx="60" cy="60" r="52" fill="none" stroke="#232a3d" strokeWidth="6" />
                       <motion.circle
-                        cx="60" cy="60" r="52" fill="none" stroke="#C084FC" strokeWidth="6" strokeLinecap="round"
+                        cx="60" cy="60" r="52" fill="none" stroke="#22d3ee" strokeWidth="6" strokeLinecap="round"
                         strokeDasharray={327}
                         animate={{ strokeDashoffset: 327 - (327 * count) / 15 }}
                         transition={{ duration: 1, ease: 'linear' }}
@@ -135,7 +135,7 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
                         key={count}
                         initial={{ scale: 1.4, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        className="text-4xl font-bold font-display text-[#C084FC]"
+                        className="text-4xl font-bold font-display text-[#22d3ee]"
                       >
                         {count}
                       </motion.span>
@@ -143,7 +143,7 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
                       <motion.div
                         animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
                         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                        className="w-2 h-2 rounded-full bg-[#C084FC] mt-1"
+                        className="w-2 h-2 rounded-full bg-[#22d3ee] mt-1"
                       />
                     </div>
                   </div>
@@ -154,12 +154,12 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
                   >
                     {goal.customGoal ? t.nudgeWithGoal(goal.customGoal) : t.nudgeMessage}
                   </motion.p>
-                  <p className="text-xs text-[#6B6B7B] mt-3">{t.takeBreath}</p>
+                  <p className="text-xs text-[#5c6680] mt-3">{t.takeBreath}</p>
                   {/* Breathing guide text */}
                   <motion.p
                     animate={{ opacity: [0.3, 0.7, 0.3] }}
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                    className="text-[11px] text-[#C084FC]/60 mt-2"
+                    className="text-[11px] text-[#22d3ee]/60 mt-2"
                   >
                     Breathe in · Breathe out
                   </motion.p>
@@ -170,46 +170,46 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
               {phase === 'choice' && (
                 <motion.div key="choice" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-center py-4">
                   <div className="flex items-center justify-center gap-2 mb-3">
-                    <Sparkles className="w-5 h-5 text-[#A855F7]" />
-                    <span className="text-[10px] uppercase tracking-widest text-[#A855F7]">{t.yourCall}</span>
+                    <Sparkles className="w-5 h-5 text-[#4ade80]" />
+                    <span className="text-[10px] uppercase tracking-widest text-[#4ade80]">{t.yourCall}</span>
                   </div>
                   <h2 className="text-xl font-bold font-display mb-2">{t.whatToDo}</h2>
-                  <p className="text-sm text-[#A1A1AA] mb-6">{t.noJudgment}</p>
+                  <p className="text-sm text-[#9aa4bd] mb-6">{t.noJudgment}</p>
                   <div className="space-y-3">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={handleBreak}
-                      className="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-[#A855F7]/10 border border-[#A855F7]/30 hover:bg-[#A855F7]/15 transition-colors text-left"
+                      className="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-[#fb7185]/10 border border-[#fb7185]/30 hover:bg-[#fb7185]/15 transition-colors text-left"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-[#A855F7]/20 flex items-center justify-center">
-                          <Check className="w-5 h-5 text-[#A855F7]" />
+                        <div className="w-10 h-10 rounded-xl bg-[#4ade80]/20 flex items-center justify-center">
+                          <Check className="w-5 h-5 text-[#4ade80]" />
                         </div>
                         <div>
-                          <p className="font-semibold text-[#A855F7]">{t.breakLoop}</p>
-                          <p className="text-xs text-[#A1A1AA]">{t.breakLoopSub}</p>
+                          <p className="font-semibold text-[#4ade80]">{t.breakLoop}</p>
+                          <p className="text-xs text-[#9aa4bd]">{t.breakLoopSub}</p>
                         </div>
                       </div>
-                      <ChevronRight className="w-5 h-5 text-[#A855F7]/50" />
+                      <ChevronRight className="w-5 h-5 text-[#4ade80]/50" />
                     </motion.button>
 
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={handleContinue}
-                      className="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-[#C084FC]/8 border border-[#C084FC]/25 hover:bg-[#C084FC]/12 transition-colors text-left"
+                      className="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-[#22d3ee]/8 border border-[#22d3ee]/25 hover:bg-[#22d3ee]/12 transition-colors text-left"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-[#C084FC]/15 flex items-center justify-center">
-                          <ArrowLeft className="w-5 h-5 text-[#C084FC]" />
+                        <div className="w-10 h-10 rounded-xl bg-[#22d3ee]/15 flex items-center justify-center">
+                          <ArrowLeft className="w-5 h-5 text-[#fbbf24]" />
                         </div>
                         <div>
-                          <p className="font-semibold text-[#C084FC]">{t.continueWatching}</p>
-                          <p className="text-xs text-[#A1A1AA]">{t.continueSub}</p>
+                          <p className="font-semibold text-[#fbbf24]">{t.continueWatching}</p>
+                          <p className="text-xs text-[#9aa4bd]">{t.continueSub}</p>
                         </div>
                       </div>
-                      <ChevronRight className="w-5 h-5 text-[#C084FC]/50" />
+                      <ChevronRight className="w-5 h-5 text-[#22d3ee]/50" />
                     </motion.button>
                   </div>
                 </motion.div>
@@ -219,11 +219,11 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
               {phase === 'reason' && (
                 <motion.div key="reason" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-center py-4">
                   <div className="flex items-center justify-center gap-2 mb-3">
-                    <AlertCircle className="w-5 h-5 text-[#C084FC]" />
-                    <span className="text-[10px] uppercase tracking-widest text-[#C084FC]">{t.quickCheck}</span>
+                    <AlertCircle className="w-5 h-5 text-[#fbbf24]" />
+                    <span className="text-[10px] uppercase tracking-widest text-[#fbbf24]">{t.quickCheck}</span>
                   </div>
                   <h2 className="text-xl font-bold font-display mb-2">{t.whatPulling}</h2>
-                  <p className="text-sm text-[#A1A1AA] mb-6">{t.oneTap}</p>
+                  <p className="text-sm text-[#9aa4bd] mb-6">{t.oneTap}</p>
                   <div className="grid grid-cols-3 gap-2.5">
                     {reasonKeys.map((r, i) => (
                       <motion.button
@@ -234,25 +234,25 @@ export default function PatternInterrupt({ open, onClose }: { open: boolean; onC
                         whileHover={{ scale: 1.04 }}
                         whileTap={{ scale: 0.96 }}
                         onClick={() => handleReason(r)}
-                        className="px-3 py-5 rounded-2xl bg-[#15151D] border border-[#1E1E28] hover:border-[#C084FC]/40 transition-colors"
+                        className="px-3 py-5 rounded-2xl bg-[#171c2a] border border-[#232a3d] hover:border-[#22d3ee]/40 transition-colors"
                       >
                         <span className="text-sm font-medium">{t.reasons[r]}</span>
                       </motion.button>
                     ))}
                   </div>
-                  <p className="text-xs text-[#6B6B7B] mt-5">{t.checkBackSooner}</p>
+                  <p className="text-xs text-[#5c6680] mt-5">{t.checkBackSooner}</p>
                 </motion.div>
               )}
             </AnimatePresence>
 
             {phase === 'countdown' && (
-              <p className="text-center text-[10px] text-[#6B6B7B] mt-4">{t.buttonsUnlock(count)}</p>
+              <p className="text-center text-[10px] text-[#5c6680] mt-4">{t.buttonsUnlock(count)}</p>
             )}
 
             {phase !== 'countdown' && phase !== 'simulating' && (
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 w-8 h-8 rounded-lg flex items-center justify-center text-[#6B6B7B] hover:text-[#A1A1AA] hover:bg-[#1E1E28]/50 transition-colors"
+                className="absolute top-4 right-4 w-8 h-8 rounded-lg flex items-center justify-center text-[#5c6680] hover:text-[#9aa4bd] hover:bg-[#232a3d]/50 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>

@@ -61,10 +61,10 @@ interface AppState {
 const Ctx = createContext<AppState | null>(null);
 
 const initialBuddies: Buddy[] = [
-  { id: 'b1', name: 'Minh', avatarColor: '#C084FC', status: 'off_screen', todayFocusMin: 142, streak: 4 },
-  { id: 'b2', name: 'An', avatarColor: '#A855F7', status: 'needs_nudge', todayFocusMin: 38, streak: 1 },
-  { id: 'b3', name: 'Linh', avatarColor: '#A855F7', status: 'focused', todayFocusMin: 95, streak: 6 },
-  { id: 'b4', name: 'Khoa', avatarColor: '#C084FC', status: 'focused', todayFocusMin: 110, streak: 3 },
+  { id: 'b1', name: 'Minh', avatarColor: '#22d3ee', status: 'off_screen', todayFocusMin: 142, streak: 4 },
+  { id: 'b2', name: 'An', avatarColor: '#4ade80', status: 'needs_nudge', todayFocusMin: 38, streak: 1 },
+  { id: 'b3', name: 'Linh', avatarColor: '#4ade80', status: 'focused', todayFocusMin: 95, streak: 6 },
+  { id: 'b4', name: 'Khoa', avatarColor: '#22d3ee', status: 'focused', todayFocusMin: 110, streak: 3 },
 ];
 
 let idc = 0;

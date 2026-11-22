@@ -101,17 +101,17 @@ export default function FocusLock() {
     <div className="space-y-5">
       <div>
         <h2 className="text-xl sm:text-2xl font-bold font-display">{f.pageTitle}</h2>
-        <p className="text-sm text-[#A1A1AA] mt-1.5 leading-relaxed max-w-2xl">{f.pageSubtitle}</p>
+        <p className="text-sm text-[#9aa4bd] mt-1.5 leading-relaxed max-w-2xl">{f.pageSubtitle}</p>
       </div>
 
       {state.error && (
-        <div role="alert" className="flex items-start gap-3 px-4 py-3 rounded-xl border border-[#A855F7]/30 bg-[#A855F7]/10">
-          <AlertTriangle className="w-4 h-4 text-[#A855F7] flex-shrink-0 mt-0.5" />
-          <p className="text-xs text-[#C084FC] leading-relaxed flex-1">{f.storageError}</p>
+        <div role="alert" className="flex items-start gap-3 px-4 py-3 rounded-xl border border-[#4ade80]/30 bg-[#4ade80]/10">
+          <AlertTriangle className="w-4 h-4 text-[#4ade80] flex-shrink-0 mt-0.5" />
+          <p className="text-xs text-[#22d3ee] leading-relaxed flex-1">{f.storageError}</p>
           <button
             type="button"
             onClick={retry}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#A855F7]/15 text-[#A855F7] text-xs font-semibold hover:bg-[#A855F7]/25 transition-colors flex-shrink-0"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#fb7185]/15 text-[#fb7185] text-xs font-semibold hover:bg-[#fb7185]/25 transition-colors flex-shrink-0"
           >
             <RotateCw className="w-3.5 h-3.5" /> {f.retry}
           </button>
@@ -119,7 +119,7 @@ export default function FocusLock() {
       )}
 
       {showingLive && (
-        <div className="inline-flex p-1 rounded-xl bg-[#101016] border border-[#1E1E28]/50">
+        <div className="inline-flex p-1 rounded-xl bg-[#11151f] border border-[#232a3d]/50">
           <ViewTab active={view === 'setup'} onClick={() => setView('setup')}>{f.viewNew}</ViewTab>
           <ViewTab active={view === 'history'} onClick={() => setView('history')}>{f.viewHistory}</ViewTab>
         </div>
@@ -135,7 +135,7 @@ export default function FocusLock() {
         <FocusSetup onStart={handleStart} />
       )}
 
-      <p className="text-[11px] text-[#6B6B7B] leading-relaxed">{f.localNote}</p>
+      <p className="text-[11px] text-[#5c6680] leading-relaxed">{f.localNote}</p>
     </div>
   );
 }
@@ -147,7 +147,7 @@ function ViewTab({ active, onClick, children }: { active: boolean; onClick: () =
       onClick={onClick}
       aria-pressed={active}
       className={`px-4 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-        active ? 'bg-[#1E1E28]/80 text-[#F8F7FC]' : 'text-[#6B6B7B] hover:text-[#A1A1AA]'
+        active ? 'bg-[#232a3d]/80 text-[#f1f4fb]' : 'text-[#5c6680] hover:text-[#9aa4bd]'
       }`}
     >
       {children}

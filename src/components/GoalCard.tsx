@@ -40,18 +40,18 @@ export default function GoalCard() {
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-[#A855F7]/15 flex items-center justify-center">
-            <Target className="w-4 h-4 text-[#A855F7]" />
+          <div className="w-8 h-8 rounded-xl bg-[#4ade80]/15 flex items-center justify-center">
+            <Target className="w-4 h-4 text-[#4ade80]" />
           </div>
           <div>
             <h3 className="font-semibold text-sm">{t.myGoal}</h3>
-            <p className="text-xs text-[#6B6B7B] mt-0.5">{t.goalSubtitle}</p>
+            <p className="text-xs text-[#5c6680] mt-0.5">{t.goalSubtitle}</p>
           </div>
         </div>
         {!editing && (
           <button
             onClick={startEdit}
-            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs text-[#A1A1AA] hover:text-[#F8F7FC] hover:bg-[#1E1E28]/50 transition-colors"
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs text-[#9aa4bd] hover:text-[#f1f4fb] hover:bg-[#232a3d]/50 transition-colors"
           >
             <Pencil className="w-3 h-3" />
             {t.editGoal}
@@ -71,8 +71,8 @@ export default function GoalCard() {
             {/* Screen time slider */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="text-xs text-[#A1A1AA] flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#A855F7]" />
+                <label className="text-xs text-[#9aa4bd] flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#4ade80]" />
                   {t.screenTimeLimit}
                 </label>
                 <span className="text-sm font-semibold font-display">{draft.screenTimeLimit} {t.minutes}</span>
@@ -84,9 +84,9 @@ export default function GoalCard() {
                 step={5}
                 value={draft.screenTimeLimit}
                 onChange={(e) => setDraft({ ...draft, screenTimeLimit: Number(e.target.value) })}
-                className="w-full accent-[#A855F7]"
+                className="w-full accent-[#4ade80]"
               />
-              <div className="flex justify-between text-[10px] text-[#6B6B7B] mt-1">
+              <div className="flex justify-between text-[10px] text-[#5c6680] mt-1">
                 <span>15m</span><span>180m</span>
               </div>
             </div>
@@ -94,8 +94,8 @@ export default function GoalCard() {
             {/* Focus sessions slider */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="text-xs text-[#A1A1AA] flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-[#C084FC]" />
+                <label className="text-xs text-[#9aa4bd] flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-[#fbbf24]" />
                   {t.focusSessionsGoal}
                 </label>
                 <span className="text-sm font-semibold font-display">{draft.focusSessions}</span>
@@ -107,17 +107,17 @@ export default function GoalCard() {
                 step={1}
                 value={draft.focusSessions}
                 onChange={(e) => setDraft({ ...draft, focusSessions: Number(e.target.value) })}
-                className="w-full accent-[#C084FC]"
+                className="w-full accent-[#22d3ee]"
               />
-              <div className="flex justify-between text-[10px] text-[#6B6B7B] mt-1">
+              <div className="flex justify-between text-[10px] text-[#5c6680] mt-1">
                 <span>1</span><span>10</span>
               </div>
             </div>
 
             {/* Custom goal text */}
             <div>
-              <label className="text-xs text-[#A1A1AA] flex items-center gap-1.5 mb-2">
-                <Flag className="w-3.5 h-3.5 text-[#C084FC]" />
+              <label className="text-xs text-[#9aa4bd] flex items-center gap-1.5 mb-2">
+                <Flag className="w-3.5 h-3.5 text-[#22d3ee]" />
                 {t.personalGoal}
               </label>
               <input
@@ -126,7 +126,7 @@ export default function GoalCard() {
                 placeholder={t.personalGoalPlaceholder}
                 onChange={(e) => setDraft({ ...draft, customGoal: e.target.value })}
                 maxLength={60}
-                className="w-full px-3 py-2.5 rounded-xl bg-[#101016] border border-[#1E1E28] text-sm text-[#F8F7FC] placeholder:text-[#6B6B7B] focus:border-[#C084FC]/50 focus:outline-none transition-colors"
+                className="w-full px-3 py-2.5 rounded-xl bg-[#11151f] border border-[#232a3d] text-sm text-[#f1f4fb] placeholder:text-[#5c6680] focus:border-[#22d3ee]/50 focus:outline-none transition-colors"
               />
             </div>
 
@@ -134,7 +134,7 @@ export default function GoalCard() {
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               onClick={save}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#A855F7]/10 border border-[#A855F7]/30 text-[#A855F7] text-sm font-semibold hover:bg-[#A855F7]/15 transition-colors glow-purple"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#fb7185]/10 border border-[#fb7185]/30 text-[#fb7185] text-sm font-semibold hover:bg-[#fb7185]/15 transition-colors"
             >
               <Check className="w-4 h-4" />
               {t.saveGoal}
@@ -151,25 +151,25 @@ export default function GoalCard() {
             {/* Screen time progress */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-[#A1A1AA] flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#A855F7]" />
+                <span className="text-xs text-[#9aa4bd] flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#4ade80]" />
                   {t.screenTimeLimit}
                 </span>
-                <span className={`text-xs font-medium ${over ? 'text-[#A855F7]' : hasTodayData ? 'text-[#A855F7]' : 'text-[#6B6B7B]'}`}>
+                <span className={`text-xs font-medium ${over ? 'text-[#fb7185]' : hasTodayData ? 'text-[#fb7185]' : 'text-[#5c6680]'}`}>
                   {hasTodayData
                     ? (over ? t.goalOverBy(remaining) : t.goalRemaining(remaining))
                     : t.dashboardNoUsageData}
                 </span>
               </div>
-              <div className="h-2.5 rounded-full bg-[#1E1E28] overflow-hidden">
+              <div className="h-2.5 rounded-full bg-[#232a3d] overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${screenPct}%` }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
-                  className={`h-full rounded-full ${over ? 'bg-gradient-to-r from-[#A855F7] to-[#A855F7]/70' : 'bg-gradient-to-r from-[#A855F7] to-[#A855F7]/70'}`}
+                  className={`h-full rounded-full ${over ? 'bg-gradient-to-r from-[#fb7185] to-[#fb7185]/70' : 'bg-gradient-to-r from-[#fb7185] to-[#fb7185]/70'}`}
                 />
               </div>
-              <div className="flex justify-between text-[10px] text-[#6B6B7B] mt-1.5">
+              <div className="flex justify-between text-[10px] text-[#5c6680] mt-1.5">
                 <span>{hasTodayData ? `${usageMin}m` : '—'}</span>
                 <span>{goal.screenTimeLimit}m</span>
               </div>
@@ -178,29 +178,29 @@ export default function GoalCard() {
             {/* Focus sessions progress */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-[#A1A1AA] flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-[#C084FC]" />
+                <span className="text-xs text-[#9aa4bd] flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-[#fbbf24]" />
                   {t.focusSessionsGoal}
                 </span>
-                <span className="text-xs font-medium text-[#C084FC]">
+                <span className="text-xs font-medium text-[#22d3ee]">
                   {t.sessionsProgress(focusSessionsDone, goal.focusSessions)}
                 </span>
               </div>
-              <div className="h-2.5 rounded-full bg-[#1E1E28] overflow-hidden">
+              <div className="h-2.5 rounded-full bg-[#232a3d] overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${sessionPct}%` }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
-                  className="h-full rounded-full bg-gradient-to-r from-[#C084FC] to-[#C084FC]/70"
+                  className="h-full rounded-full bg-gradient-to-r from-[#22d3ee] to-[#22d3ee]/70"
                 />
               </div>
             </div>
 
             {/* Custom goal display */}
             {goal.customGoal && (
-              <div className="flex items-start gap-2 pt-3 border-t border-[#1E1E28]/60">
-                <Flag className="w-3.5 h-3.5 text-[#C084FC] mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-[#F8F7FC] leading-snug">{goal.customGoal}</p>
+              <div className="flex items-start gap-2 pt-3 border-t border-[#232a3d]/60">
+                <Flag className="w-3.5 h-3.5 text-[#22d3ee] mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-[#f1f4fb] leading-snug">{goal.customGoal}</p>
               </div>
             )}
           </motion.div>

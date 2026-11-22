@@ -81,23 +81,23 @@ export default function FocusActive({ session, onUpdate, onFinish }: Props) {
 
   const manualResume = () => resume(Date.now(), session.interventions);
 
-  const ringColor = paused ? '#C084FC' : '#C084FC';
+  const ringColor = paused ? '#22d3ee' : '#22d3ee';
 
   return (
     <div className="space-y-4">
       <div className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center">
         <span
           className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
-            paused ? 'bg-[#C084FC]/10 text-[#C084FC]' : 'bg-[#A855F7]/10 text-[#A855F7]'
+            paused ? 'bg-[#22d3ee]/10 text-[#22d3ee]' : 'bg-[#4ade80]/10 text-[#4ade80]'
           }`}
         >
-          <span className={`w-1.5 h-1.5 rounded-full ${paused ? 'bg-[#C084FC]' : 'bg-[#A855F7] animate-pulse'}`} />
+          <span className={`w-1.5 h-1.5 rounded-full ${paused ? 'bg-[#22d3ee]' : 'bg-[#4ade80] animate-pulse'}`} />
           {paused ? f.statusBreak : f.statusRunning}
         </span>
 
         <div className="relative w-56 h-56 sm:w-64 sm:h-64 my-6">
           <svg viewBox="0 0 200 200" className="w-full h-full -rotate-90" aria-hidden="true">
-            <circle cx="100" cy="100" r={RING_RADIUS} fill="none" stroke="#1E1E28" strokeWidth="8" />
+            <circle cx="100" cy="100" r={RING_RADIUS} fill="none" stroke="#232a3d" strokeWidth="8" />
             <circle
               cx="100"
               cy="100"
@@ -113,11 +113,11 @@ export default function FocusActive({ session, onUpdate, onFinish }: Props) {
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span className="text-5xl sm:text-6xl font-bold font-display tabular-nums tracking-tight">{formatClock(remaining)}</span>
-            <span className="text-[10px] uppercase tracking-widest text-[#6B6B7B] mt-2">{f.timeLeft}</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#5c6680] mt-2">{f.timeLeft}</span>
           </div>
         </div>
 
-        {paused && <p className="text-sm text-[#C084FC] mb-4 max-w-sm">{f.breakBanner}</p>}
+        {paused && <p className="text-sm text-[#22d3ee] mb-4 max-w-sm">{f.breakBanner}</p>}
 
         {step === 'idle' && (
           <div className="w-full max-w-sm flex flex-col sm:flex-row gap-2">
@@ -125,7 +125,7 @@ export default function FocusActive({ session, onUpdate, onFinish }: Props) {
               <button
                 type="button"
                 onClick={manualResume}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#A855F7] text-[#08080D] text-sm font-bold hover:bg-[#A855F7]/85 transition-colors active:scale-[0.99] glow-purple"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#fb7185] text-[#0a0d14] text-sm font-bold hover:bg-[#fb7185]/85 transition-colors active:scale-[0.99]"
               >
                 <Play className="w-4 h-4" fill="currentColor" /> {f.resumeButton}
               </button>
@@ -133,7 +133,7 @@ export default function FocusActive({ session, onUpdate, onFinish }: Props) {
               <button
                 type="button"
                 onClick={() => setStep('reason')}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-[#C084FC]/40 bg-[#C084FC]/10 text-[#C084FC] text-sm font-semibold hover:bg-[#C084FC]/15 transition-colors active:scale-[0.99]"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-[#22d3ee]/40 bg-[#22d3ee]/10 text-[#22d3ee] text-sm font-semibold hover:bg-[#22d3ee]/15 transition-colors active:scale-[0.99]"
               >
                 <Pause className="w-4 h-4" /> {f.stopButton}
               </button>
@@ -142,7 +142,7 @@ export default function FocusActive({ session, onUpdate, onFinish }: Props) {
               <button
                 type="button"
                 onClick={() => setStep('reason')}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-[#A855F7]/40 text-[#A855F7] text-sm font-semibold hover:bg-[#A855F7]/10 transition-colors active:scale-[0.99]"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-[#fb7185]/40 text-[#fb7185] text-sm font-semibold hover:bg-[#fb7185]/10 transition-colors active:scale-[0.99]"
               >
                 <X className="w-4 h-4" /> {f.endButton}
               </button>
@@ -153,14 +153,14 @@ export default function FocusActive({ session, onUpdate, onFinish }: Props) {
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="glass rounded-2xl p-5">
-          <p className="text-[10px] uppercase tracking-widest text-[#6B6B7B] mb-2">{f.goalLabel}</p>
+          <p className="text-[10px] uppercase tracking-widest text-[#5c6680] mb-2">{f.goalLabel}</p>
           <p className="text-sm font-medium">{session.goal || f.noGoal}</p>
         </div>
         <div className="glass rounded-2xl p-5">
-          <p className="text-[10px] uppercase tracking-widest text-[#6B6B7B] mb-2">{f.avoidingLabel}</p>
+          <p className="text-[10px] uppercase tracking-widest text-[#5c6680] mb-2">{f.avoidingLabel}</p>
           <div className="flex flex-wrap gap-1.5">
             {session.apps.map((id) => (
-              <span key={id} className="px-2.5 py-1 rounded-lg text-xs font-medium bg-[#C084FC]/10 text-[#C084FC] border border-[#C084FC]/25">
+              <span key={id} className="px-2.5 py-1 rounded-lg text-xs font-medium bg-[#22d3ee]/10 text-[#22d3ee] border border-[#22d3ee]/25">
                 {f.apps[id]}
               </span>
             ))}

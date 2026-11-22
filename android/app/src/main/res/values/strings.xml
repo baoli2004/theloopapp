@@ -4,4 +4,5 @@
     <string name="title_activity_main">THE LOOP</string>
     <string name="package_name">com.theloop.app</string>
     <string name="custom_url_scheme">com.theloop.app</string>
+    <string name="accessibility_service_description">THE LOOP uses this service to detect when restricted apps are opened during a focus session, then displays a gentle reminder to stay focused. No personal data is read or transmitted.</string>
 </resources>

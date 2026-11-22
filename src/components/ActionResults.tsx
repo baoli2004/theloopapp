@@ -8,16 +8,16 @@ import { loadMirrorRecords } from '@/mirrorStorage';
 import { exportMirrorCSV } from '@/mirrorExport';
 
 const choiceIcon: Record<MirrorChoice, React.ReactNode> = {
-  return: <Clock className="w-3.5 h-3.5 text-[#C084FC]" />,
-  break: <Activity className="w-3.5 h-3.5 text-[#A855F7]" />,
-  continue: <CheckCircle2 className="w-3.5 h-3.5 text-[#C084FC]" />,
+  return: <Clock className="w-3.5 h-3.5 text-[#22d3ee]" />,
+  break: <Activity className="w-3.5 h-3.5 text-[#4ade80]" />,
+  continue: <CheckCircle2 className="w-3.5 h-3.5 text-[#fbbf24]" />,
 };
 
 const followUpStatusIcon: Record<FollowUpStatus, React.ReactNode> = {
-  completed: <CheckCircle2 className="w-3.5 h-3.5 text-[#A855F7]" />,
-  partial: <AlertCircle className="w-3.5 h-3.5 text-[#C084FC]" />,
-  not_completed: <X className="w-3.5 h-3.5 text-[#A855F7]" />,
-  pending: <Clock className="w-3.5 h-3.5 text-[#6B6B7B]" />,
+  completed: <CheckCircle2 className="w-3.5 h-3.5 text-[#4ade80]" />,
+  partial: <AlertCircle className="w-3.5 h-3.5 text-[#fbbf24]" />,
+  not_completed: <X className="w-3.5 h-3.5 text-[#fb7185]" />,
+  pending: <Clock className="w-3.5 h-3.5 text-[#5c6680]" />,
 };
 
 function reasonShort(t: ReturnType<typeof useLang>['t'], r: string): string {
@@ -113,18 +113,18 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-[#A855F7]/15 flex items-center justify-center">
-            <Activity className="w-4 h-4 text-[#A855F7]" />
+          <div className="w-8 h-8 rounded-xl bg-[#4ade80]/15 flex items-center justify-center">
+            <Activity className="w-4 h-4 text-[#4ade80]" />
           </div>
           <div>
             <h3 className="font-semibold text-sm">{t.actionResultsTitle}</h3>
-            <p className="text-xs text-[#6B6B7B] mt-0.5">{t.actionResultsSubtitle}</p>
+            <p className="text-xs text-[#5c6680] mt-0.5">{t.actionResultsSubtitle}</p>
           </div>
         </div>
         <button
           onClick={() => setShowHistory((s) => !s)}
           className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs transition-colors ${
-            showHistory ? 'text-[#C084FC] bg-[#C084FC]/10' : 'text-[#A1A1AA] hover:text-[#F8F7FC] hover:bg-[#1E1E28]/50'
+            showHistory ? 'text-[#22d3ee] bg-[#22d3ee]/10' : 'text-[#9aa4bd] hover:text-[#f1f4fb] hover:bg-[#232a3d]/50'
           }`}
         >
           <History className="w-3.5 h-3.5" />
@@ -141,7 +141,7 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
             exit={{ opacity: 0 }}
           >
             {sortedHistory.length === 0 ? (
-              <p className="text-sm text-[#6B6B7B] py-6 text-center">{t.actionHistoryEmpty}</p>
+              <p className="text-sm text-[#5c6680] py-6 text-center">{t.actionHistoryEmpty}</p>
             ) : (
               <div className="space-y-2 max-h-64 overflow-y-auto no-scrollbar">
                 {sortedHistory.map((rec, i) => (
@@ -150,27 +150,27 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
                     initial={{ opacity: 0, x: -8 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.03 }}
-                    className="py-2.5 px-3 rounded-lg bg-[#101016]/60"
+                    className="py-2.5 px-3 rounded-lg bg-[#11151f]/60"
                   >
                     <div className="flex items-center justify-between mb-1">
                       <div className="flex items-center gap-2">
                         {choiceIcon[rec.choice]}
-                        <span className="text-xs text-[#F8F7FC] font-medium">{reasonShort(t, rec.reason)}</span>
+                        <span className="text-xs text-[#f1f4fb] font-medium">{reasonShort(t, rec.reason)}</span>
                       </div>
-                      <span className="text-[10px] text-[#6B6B7B]">
+                      <span className="text-[10px] text-[#5c6680]">
                         {new Date(rec.timestamp).toLocaleDateString([], { month: 'short', day: 'numeric' })}
                         {' · '}
                         {new Date(rec.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 text-[11px] text-[#6B6B7B]">
+                    <div className="flex items-center gap-2 text-[11px] text-[#5c6680]">
                       <span>{choiceShort(t, rec.choice)}</span>
                       {rec.followUp && (
                         <>
                           <span>·</span>
                           <span
                             className="flex items-center gap-1"
-                            style={{ color: rec.followUp.status === 'pending' ? '#6B6B7B' : undefined }}
+                            style={{ color: rec.followUp.status === 'pending' ? '#5c6680' : undefined }}
                           >
                             {followUpStatusIcon[rec.followUp.status]}
                             {followUpStatusShort(t, rec.followUp.status)}
@@ -178,7 +178,7 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
                           {rec.followUp.status === 'pending' && rec.followUp.dueAt <= Date.now() && (
                             <button
                               onClick={() => onCheckIn(rec.id)}
-                              className="ml-auto flex items-center gap-1 px-2 py-1 rounded-md bg-[#C084FC]/10 text-[#C084FC] text-[10px] font-semibold hover:bg-[#C084FC]/15 transition-colors"
+                              className="ml-auto flex items-center gap-1 px-2 py-1 rounded-md bg-[#22d3ee]/10 text-[#22d3ee] text-[10px] font-semibold hover:bg-[#22d3ee]/15 transition-colors"
                             >
                               {t.followUpCheckInNow}
                               <ChevronRight className="w-3 h-3" />
@@ -188,7 +188,7 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
                       )}
                     </div>
                     {rec.followUp?.note && (
-                      <p className="text-[11px] text-[#A1A1AA] mt-1 italic leading-snug">"{rec.followUp.note}"</p>
+                      <p className="text-[11px] text-[#9aa4bd] mt-1 italic leading-snug">"{rec.followUp.note}"</p>
                     )}
                   </motion.div>
                 ))}
@@ -198,7 +198,7 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
             <button
               onClick={handleExport}
               disabled={realRecords.length === 0}
-              className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#C084FC]/10 border border-[#C084FC]/20 text-[#C084FC] text-xs font-semibold hover:bg-[#C084FC]/15 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#22d3ee]/10 border border-[#22d3ee]/20 text-[#22d3ee] text-xs font-semibold hover:bg-[#22d3ee]/15 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <Download className="w-3.5 h-3.5" />
               {t.actionExportCSV}
@@ -206,7 +206,7 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
 
             <button
               onClick={() => setShowHistory(false)}
-              className="mt-3 w-full text-center text-xs text-[#6B6B7B] hover:text-[#A1A1AA] transition-colors"
+              className="mt-3 w-full text-center text-xs text-[#5c6680] hover:text-[#9aa4bd] transition-colors"
             >
               {t.mirrorBack}
             </button>
@@ -220,18 +220,18 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
           >
             {totalCheckIns === 0 && pendingDue.length === 0 ? (
               <div className="text-center py-8">
-                <div className="w-12 h-12 rounded-2xl bg-[#1E1E28]/40 flex items-center justify-center mx-auto mb-3">
-                  <Activity className="w-6 h-6 text-[#6B6B7B]" />
+                <div className="w-12 h-12 rounded-2xl bg-[#232a3d]/40 flex items-center justify-center mx-auto mb-3">
+                  <Activity className="w-6 h-6 text-[#5c6680]" />
                 </div>
-                <p className="text-sm font-medium text-[#A1A1AA] mb-1">{t.actionNoData}</p>
-                <p className="text-xs text-[#6B6B7B] leading-relaxed px-4">{t.actionNoDataDesc}</p>
+                <p className="text-sm font-medium text-[#9aa4bd] mb-1">{t.actionNoData}</p>
+                <p className="text-xs text-[#5c6680] leading-relaxed px-4">{t.actionNoDataDesc}</p>
               </div>
             ) : (
               <>
                 {/* Pending check-in banner */}
                 {pendingDue.length > 0 && (
-                  <div className="mb-4 p-3 rounded-xl bg-[#C084FC]/8 border border-[#C084FC]/20">
-                    <p className="text-xs text-[#C084FC] font-medium mb-2 flex items-center gap-1.5">
+                  <div className="mb-4 p-3 rounded-xl bg-[#fbbf24]/8 border border-[#fbbf24]/20">
+                    <p className="text-xs text-[#22d3ee] font-medium mb-2 flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5" />
                       {pendingDue.length > 1
                         ? `${pendingDue.length} ${t.followUpOverdue}`
@@ -242,15 +242,15 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
                         <button
                           key={rec.id}
                           onClick={() => onCheckIn(rec.id)}
-                          className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-[#101016]/60 hover:bg-[#15151D] transition-colors text-left"
+                          className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-[#11151f]/60 hover:bg-[#171c2a] transition-colors text-left"
                         >
                           <div className="flex items-center gap-2 min-w-0">
                             {choiceIcon[rec.choice]}
-                            <span className="text-xs text-[#F8F7FC] truncate">
+                            <span className="text-xs text-[#f1f4fb] truncate">
                               {t.followUpBanner(choiceShort(t, rec.choice))}
                             </span>
                           </div>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#C084FC] flex-shrink-0" />
+                          <ChevronRight className="w-3.5 h-3.5 text-[#22d3ee] flex-shrink-0" />
                         </button>
                       ))}
                     </div>
@@ -263,32 +263,32 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
                     label={t.actionTotalCheckins}
                     value={totalCheckIns}
                     icon={<Activity className="w-3.5 h-3.5" />}
-                    accent="#C084FC"
+                    accent="#fbbf24"
                   />
                   <ResultStat
                     label={t.actionCompleted}
                     value={completed}
                     icon={<CheckCircle2 className="w-3.5 h-3.5" />}
-                    accent="#A855F7"
+                    accent="#fb7185"
                   />
                   <ResultStat
                     label={t.actionPartial}
                     value={partial}
                     icon={<AlertCircle className="w-3.5 h-3.5" />}
-                    accent="#C084FC"
+                    accent="#fbbf24"
                   />
                   <ResultStat
                     label={t.actionNotCompleted}
                     value={notCompleted}
                     icon={<X className="w-3.5 h-3.5" />}
-                    accent="#A855F7"
+                    accent="#fb7185"
                   />
                 </div>
 
                 <button
                   onClick={handleExport}
                   disabled={realRecords.length === 0}
-                  className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#C084FC]/10 border border-[#C084FC]/20 text-[#C084FC] text-xs font-semibold hover:bg-[#C084FC]/15 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#22d3ee]/10 border border-[#22d3ee]/20 text-[#22d3ee] text-xs font-semibold hover:bg-[#22d3ee]/15 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <Download className="w-3.5 h-3.5" />
                   {t.actionExportCSV}
@@ -304,12 +304,12 @@ export default function ActionResults({ onCheckIn }: ActionResultsProps) {
 
 function ResultStat({ label, value, icon, accent }: { label: string; value: number; icon: React.ReactNode; accent: string }) {
   return (
-    <div className="rounded-xl bg-[#101016]/60 p-3">
+    <div className="rounded-xl bg-[#11151f]/60 p-3">
       <div className="flex items-center gap-1.5 mb-1.5">
         <span className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ background: `${accent}15`, color: accent }}>
           {icon}
         </span>
-        <span className="text-[10px] text-[#6B6B7B] uppercase tracking-wide leading-tight">{label}</span>
+        <span className="text-[10px] text-[#5c6680] uppercase tracking-wide leading-tight">{label}</span>
       </div>
       <span className="text-lg font-bold font-display">{value}</span>
     </div>

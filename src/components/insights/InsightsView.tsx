@@ -49,7 +49,7 @@ export default function InsightsView() {
   if (!loaded) {
     return (
       <div className="flex items-center justify-center py-20">
-        <div className="w-6 h-6 border-2 border-[#1E1E28] border-t-[#C084FC] rounded-full animate-spin" />
+        <div className="w-6 h-6 border-2 border-[#232a3d] border-t-[#22d3ee] rounded-full animate-spin" />
       </div>
     );
   }
@@ -63,7 +63,7 @@ export default function InsightsView() {
   return (
     <div className="space-y-4">
       {/* Sub-navigation */}
-      <div className="flex items-center gap-1 bg-[#101016] rounded-xl p-1 border border-[#1E1E28]/50 w-fit">
+      <div className="flex items-center gap-1 bg-[#11151f] rounded-xl p-1 border border-[#232a3d]/50 w-fit">
         {subTabs.map((st) => (
           <button
             key={st.key}
@@ -72,13 +72,13 @@ export default function InsightsView() {
               setEntryDate(null);
             }}
             className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-              subView === st.key ? 'text-[#F8F7FC]' : 'text-[#6B6B7B] hover:text-[#A1A1AA]'
+              subView === st.key ? 'text-[#f1f4fb]' : 'text-[#5c6680] hover:text-[#9aa4bd]'
             }`}
           >
             {subView === st.key && (
               <motion.div
                 layoutId="insights-tab-bg"
-                className="absolute inset-0 bg-[#1E1E28]/70 rounded-lg"
+                className="absolute inset-0 bg-[#232a3d]/70 rounded-lg"
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
             )}
